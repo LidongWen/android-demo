@@ -28,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
         AllUtilConfig.LogSwitch=true;
 //        getActionBar().setTitle("自定义View");
         list.add(new ItemClass("recyclerView to Viewpage效果",RecyclerViewToViewPageActivity.class));
+        list.add(new ItemClass("recyclerView 卡片滑动",RecyclerViewCardDragActivity.class));
+
 
         this.rlvAtyFilter = (RecyclerView) findViewById(R.id.rlv_activity_main);
 
