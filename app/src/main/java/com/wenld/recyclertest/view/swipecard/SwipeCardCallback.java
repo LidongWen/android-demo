@@ -21,8 +21,8 @@ public class SwipeCardCallback extends ItemTouchHelper.SimpleCallback {
     List mDatas;
 
     public SwipeCardCallback(RecyclerView recyclerView, RecyclerView.Adapter adapter, List datas) {
-        super(0, /*ItemTouchHelper.UP |*/ ItemTouchHelper.LEFT |
-               /* ItemTouchHelper.DOWN |*/ ItemTouchHelper.RIGHT);
+        super(0, ItemTouchHelper.UP | ItemTouchHelper.LEFT |
+               ItemTouchHelper.DOWN | ItemTouchHelper.RIGHT);
         this.mRecyclerView = recyclerView;
         this.mAdapter = adapter;
         this.mDatas = datas;
@@ -53,27 +53,27 @@ public class SwipeCardCallback extends ItemTouchHelper.SimpleCallback {
 
         //监听滑动child变化 --- 控制动画效果
         //零界点：比例系数;
-        double fraction = dX / getThreshold();
+        double fraction = Math.sqrt(dX*dX+dY*dY) / getThreshold();
         if (fraction > 1) {
             fraction = 1;
         }
 
-        viewHolder.itemView.setRotation((float) (fraction * 15));
+//        viewHolder.itemView.setRotation((float) (fraction * 15));
 
 
         int childCount = recyclerView.getChildCount();//得到展示view的数量
         View child;
         int level;
-        for (int i = 0; i < childCount; i++ ) {
+        for (int i = 0; i < childCount; i++) {
             child = recyclerView.getChildAt(i);
 
             level = childCount - i - 1;
             if (level > 0) {
-                child.setScaleX((float) (1 - CardConfig.SCALE_GAP * level+ fraction*CardConfig.SCALE_GAP));
+                child.setScaleX((float) (1 - CardConfig.SCALE_GAP * level + Math.abs(fraction) * CardConfig.SCALE_GAP));
                 //上面 2 个
                 if (level < CardConfig.MAX_SHOW_COUNT - 1) {
-                    child.setTranslationY((float) (CardConfig.TRANS_Y_GAP * (level)-fraction*CardConfig.TRANS_Y_GAP));
-                    child.setScaleY((float) (1 - CardConfig.SCALE_GAP * (level)+fraction*CardConfig.SCALE_GAP));
+                    child.setTranslationY((float) (CardConfig.TRANS_Y_GAP * (level) - Math.abs(fraction) * CardConfig.TRANS_Y_GAP));
+                    child.setScaleY((float) (1 - CardConfig.SCALE_GAP * (level) + Math.abs(fraction) * CardConfig.SCALE_GAP));
                 }
             }
         }
@@ -81,7 +81,7 @@ public class SwipeCardCallback extends ItemTouchHelper.SimpleCallback {
 
     @Override
     public void clearView(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
-        viewHolder.itemView.setRotation(0f);
+//        viewHolder.itemView.setRotation(0f);
         super.clearView(recyclerView, viewHolder);
 
     }

@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.wenld.commontools.AllUtilConfig;
+import com.wenld.recyclertest.card.MainActivity2;
 import com.zhy.adapter.recyclerview.CommonAdapter;
 import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
 //        getActionBar().setTitle("自定义View");
         list.add(new ItemClass("recyclerView to Viewpage效果",RecyclerViewToViewPageActivity.class));
         list.add(new ItemClass("recyclerView 卡片滑动",RecyclerViewCardDragActivity.class));
+        list.add(new ItemClass("画廊效果", MainActivity2.class));
 
 
         this.rlvAtyFilter = (RecyclerView) findViewById(R.id.rlv_activity_main);
