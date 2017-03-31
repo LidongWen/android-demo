@@ -12,7 +12,9 @@ import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
+import com.wenld.recyclertest.view.longtext.CollapsibleTextView;
 import com.zhy.adapter.recyclerview.CommonAdapter;
 import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
@@ -40,6 +42,8 @@ public class RecyclerViewToViewPageActivity extends AppCompatActivity {
         adapter = new CommonAdapter<String>(this, R.layout.list_img, list) {
             @Override
             protected void convert(ViewHolder holder, final String s, final int position) {
+                CollapsibleTextView textView = holder.getView(R.id.longText);
+                textView.setDesc("很长的数据...\n\n\n\n\n\n\n\n  end", TextView.BufferType.SPANNABLE);
             }
         };
         rlvAtyFilter.setLayoutManager(new LinearLayoutManager(this));
