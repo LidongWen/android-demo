@@ -6,7 +6,11 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.View;
+import android.widget.TextView;
 
+import com.wenld.recyclertest.view.swipecard.CardConfig;
+import com.wenld.recyclertest.view.swipecard.SwipeCardCallback;
+import com.wenld.recyclertest.view.swipecard.SwipeCardLayoutManager;
 import com.zhy.adapter.recyclerview.CommonAdapter;
 import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
@@ -22,14 +26,19 @@ import java.util.List;
  */
 
 public class RecyclerViewCardDragActivity extends Activity {
-    public RecyclerView rlvAtyFilter;
+    public RecyclerView mRv;
     CommonAdapter adapter;
     List<String> list = new ArrayList<>();
 
+
+    TextView textView;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rlv);
+        setContentView(R.layout.activity_swipecard);
+
+        textView= (TextView) findViewById(R.id.tvMoreText);
+
         for (int i = 0; i < 10; i++) {
             list.add("");
         }
@@ -38,13 +47,13 @@ public class RecyclerViewCardDragActivity extends Activity {
             protected void convert(ViewHolder holder, final String s, final int position) {
             }
         };
-        this.rlvAtyFilter = (RecyclerView) findViewById(R.id.rlv_activity_rlv_vp);
-        rlvAtyFilter.setLayoutManager(new SwipeCardLayoutManager());
-        rlvAtyFilter.setAdapter(adapter);
+        this.mRv = (RecyclerView) findViewById(R.id.rlv_activity_swipeCard);
+        mRv.setLayoutManager(new SwipeCardLayoutManager());
+        mRv.setAdapter(adapter);
         adapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener<String>() {
             @Override
             public void onItemClick(View view, RecyclerView.ViewHolder holder, String o, int position) {
-
+                textView.setText(position+" ");
             }
 
             @Override
@@ -57,38 +66,9 @@ public class RecyclerViewCardDragActivity extends Activity {
         CardConfig.initConfig(this);
 
 
-        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new SwipCardCallback(rlvAtyFilter,adapter,list));
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new SwipeCardCallback(mRv,adapter,list));
         // 这个就不多解释了，就这么attach
-        itemTouchHelper.attachToRecyclerView(rlvAtyFilter);
+        itemTouchHelper.attachToRecyclerView(mRv);
     }
 
-
-    public class SwipCardCallback extends ItemTouchHelper.SimpleCallback {
-        RecyclerView mRecyclerView;
-        RecyclerView.Adapter mAdapter;
-        List mDatas;
-
-        public SwipCardCallback( RecyclerView recyclerView, RecyclerView.Adapter adapter, List datas) {
-            super(0, ItemTouchHelper.UP | ItemTouchHelper.LEFT |
-                    ItemTouchHelper.DOWN | ItemTouchHelper.RIGHT);
-            this.mRecyclerView = recyclerView;
-            this.mAdapter = adapter;
-            this.mDatas = datas;
-
-        }
-
-
-        @Override
-        public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
-            return false;
-        }
-
-        @Override
-        public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
-            //滑动删除
-            Object obj=mDatas.remove(viewHolder.getAdapterPosition());
-            mDatas.add(0,obj);
-            mAdapter.notifyDataSetChanged();
-        }
-    }
 }

@@ -42,7 +42,8 @@ public class RecyclerViewToViewPageActivity extends AppCompatActivity {
             protected void convert(ViewHolder holder, final String s, final int position) {
             }
         };
-        rlvAtyFilter.setLayoutManager(new GridLayoutManager(this, 5, LinearLayoutManager.VERTICAL, false));
+        rlvAtyFilter.setLayoutManager(new LinearLayoutManager(this));
+//        rlvAtyFilter.setLayoutManager(new GridLayoutManager(this, 4, LinearLayoutManager.VERTICAL, false));
         rlvAtyFilter.setAdapter(adapter);
         adapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener<String>() {
             @Override
@@ -148,7 +149,7 @@ public class RecyclerViewToViewPageActivity extends AppCompatActivity {
         itemTouchHelper.attachToRecyclerView(rlvAtyFilter);
 
 
-//        rlvAtyFilter.addItemDecoration(new AutoGridDeciration(this));
+//        mRv.addItemDecoration(new AutoGridDeciration(this));
     }
 
 

@@ -1,7 +1,6 @@
-package com.wenld.recyclertest;
+package com.wenld.recyclertest.view.swipecard;
 
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -52,20 +51,18 @@ public class SwipeCardLayoutManager extends RecyclerView.LayoutManager {
                     heightSpace / 2 + getDecoratedMeasuredHeight(view));
 
 
-            //层叠错开
+            //层叠错开  代表页面上展示   0 为第一层
             int level = itemCount - postion - 1;
-            Log.e("aaa:","postion:"+postion+"  level:"+level);
+//            Log.e("aaa:","postion:"+postion+"  level:"+level);
             if (level > 0) {
                 view.setScaleX(1 - CardConfig.SCALE_GAP * level);
-
-                //最后一个
+                //上面三个
                 if (level < CardConfig.MAX_SHOW_COUNT - 1) {
-                    view.setTranslationY(CardConfig.TRANS_Y_GAP * level);
-                    view.setScaleY(1 - CardConfig.SCALE_GAP * level);
+                    view.setTranslationY(CardConfig.TRANS_Y_GAP * (level));
+                    view.setScaleY(1 - CardConfig.SCALE_GAP * (level));
                 } else {
-                    //下面的图层
-                    view.setTranslationY(CardConfig.TRANS_Y_GAP * (level - 1));
-                    view.setScaleY(1 - CardConfig.SCALE_GAP * (level - 1));
+                    view.setTranslationY(CardConfig.TRANS_Y_GAP * (level-1));
+                    view.setScaleY(1 - CardConfig.SCALE_GAP * (level-1));
                 }
             }
         }

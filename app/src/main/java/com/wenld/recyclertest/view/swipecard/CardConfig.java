@@ -1,4 +1,4 @@
-package com.wenld.recyclertest;
+package com.wenld.recyclertest.view.swipecard;
 
 import android.content.Context;
 
@@ -15,6 +15,6 @@ public class CardConfig {
     public static void initConfig(Context context) {
         MAX_SHOW_COUNT = 4;
         SCALE_GAP = 0.05f;
-        TRANS_Y_GAP = 10;
+        TRANS_Y_GAP = 50;
     }
 }
