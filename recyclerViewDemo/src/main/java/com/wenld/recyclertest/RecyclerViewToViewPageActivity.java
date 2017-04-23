@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.LinearSnapHelper;
@@ -12,6 +13,7 @@ import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.wenld.recyclertest.view.longtext.CollapsibleTextView;
@@ -28,11 +30,20 @@ public class RecyclerViewToViewPageActivity extends AppCompatActivity {
     CommonAdapter adapter;
     List<String> list = new ArrayList<>();
 
+    Button btn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rlv);
-
+        btn = (Button) findViewById(R.id.btn_add);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                list.add(1, "添加——————");
+                adapter.notifyItemInserted(1);
+            }
+        });
 //        getActionBar().setTitle("自定义View");
         for (int i = 0; i < 10; i++) {
             list.add("");
@@ -49,6 +60,7 @@ public class RecyclerViewToViewPageActivity extends AppCompatActivity {
         rlvAtyFilter.setLayoutManager(new LinearLayoutManager(this));
 //        rlvAtyFilter.setLayoutManager(new GridLayoutManager(this, 4, LinearLayoutManager.VERTICAL, false));
         rlvAtyFilter.setAdapter(adapter);
+        rlvAtyFilter.setItemAnimator(new DefaultItemAnimator());
         adapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener<String>() {
             @Override
             public void onItemClick(View view, RecyclerView.ViewHolder holder, String o, int position) {

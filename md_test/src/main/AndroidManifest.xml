@@ -1,8 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.wenld.recyclertest">
 
-    <uses-permission android:name="android.permission.INTERNET" />
+    package="wenld.github.md_test">
 
     <application
         android:allowBackup="true"
@@ -18,10 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RecyclerViewToViewPageActivity" />
-        <activity android:name=".RecyclerViewCardDragActivity" />
-        <activity android:name=".card.MainActivity2" />
-        <activity android:name=".itemTouch.ItemTouchActivity" />
+        <activity android:name=".TextInputLayoutActivity" />
+        <activity android:name=".NavigationActivity" />
+        <activity android:name=".SnackbarActivity" />
     </application>
-
 </manifest>

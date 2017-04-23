@@ -6,11 +6,11 @@
     android:layout_height="match_parent">
 
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/rlv_activity_main"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fitsSystemWindows="false"
-            android:paddingRight="10dp" />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rlv_activity_itemtouch"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="false"
+        android:paddingRight="10dp" />
 
 </LinearLayout>

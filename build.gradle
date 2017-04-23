@@ -17,6 +17,11 @@ allprojects {
         jcenter()
         maven { url "https://www.jitpack.io" }
     }
+//    dependencies {
+//        classpath 'com.antfortune.freeline:gradle:0.8.3'
+//    }
+
+
 }
 
 task clean(type: Delete) {
