@@ -8,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
+
 import com.zhy.adapter.recyclerview.CommonAdapter;
 import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
@@ -34,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
         list.add(new ItemClass("NavigationBar", NavigationActivity.class));
         list.add(new ItemClass("Snackbar", SnackbarActivity.class));
         list.add(new ItemClass("ToolBar", ToolBarActivity.class));
+        list.add(new ItemClass("CoordinatorLayoutActivity", CoordinatorLayoutActivity.class));
+        list.add(new ItemClass("BehaviorActivity_1 自定义",BehaviorActivity_1.class));
 
         adapter = new CommonAdapter<ItemClass>(this, R.layout.list_items, list) {
             @Override

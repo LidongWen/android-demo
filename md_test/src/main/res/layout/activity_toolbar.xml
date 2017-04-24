@@ -7,10 +7,10 @@
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"r
+        android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
         app:title="网易新闻"
-        app:navigationIcon="@mipmap/ic_launche"
+        app:navigationIcon="@mipmap/ic_launcher"
         >
 
     </android.support.v7.widget.Toolbar>
