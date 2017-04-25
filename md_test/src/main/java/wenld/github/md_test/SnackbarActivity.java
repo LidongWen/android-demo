@@ -55,8 +55,8 @@ public class SnackbarActivity extends AppCompatActivity {
                 showCustomToast(null);
             }
         });
-        snackbar.setCallback(new Snackbar.Callback() {
-
+        snackbar.setActionTextColor(Color.RED);
+        snackbar.addCallback(new Snackbar.Callback(){
             @Override
             public void onDismissed(Snackbar snackbar, int event) {
                 // TODO Auto-generated method stub
@@ -70,7 +70,6 @@ public class SnackbarActivity extends AppCompatActivity {
                 super.onShown(snackbar);
             }
         });
-        snackbar.setActionTextColor(Color.RED);
         snackbar.show();
 
     }

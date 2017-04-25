@@ -25,12 +25,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 
-/**
- * <p>下拉时显示FAB，上拉隐藏，留出更多位置给用户。</p>
- * Created on 2016/7/14.
- *
- * @author Yan Zhenjie.
- */
 public class ScaleDownShowBehavior extends FloatingActionButton.Behavior {
     /**
      * 退出动画是否正在执行。
@@ -51,12 +45,24 @@ public class ScaleDownShowBehavior extends FloatingActionButton.Behavior {
 
     @Override
     public void onNestedScroll(CoordinatorLayout coordinatorLayout, FloatingActionButton child, View target, int dxConsumed, int dyConsumed, int dxUnconsumed, int dyUnconsumed) {
-        if ((dyConsumed > 0 || dyUnconsumed > 0) && !isAnimatingOut && child.getVisibility() == View.VISIBLE) {//往下滑
+//        if (dyConsumed > 0 && dyUnconsumed == 0) {
+//            System.out.println("上滑中。。。");
+//        }
+//        if (dyConsumed == 0 && dyUnconsumed > 0) {
+//            System.out.println("到边界了还在上滑。。。");
+//        }
+//        if (dyConsumed < 0 && dyUnconsumed == 0) {
+//            System.out.println("下滑中。。。");
+//        }
+//        if (dyConsumed == 0 && dyUnconsumed < 0) {
+//            System.out.println("到边界了，还在下滑。。。");
+//        }
+        if ((dyConsumed > 0 && dyUnconsumed == 0) && !isAnimatingOut && child.getVisibility() == View.VISIBLE) {//往上滑
             AnimatorUtil.scaleHide(child, viewPropertyAnimatorListener);
             if (mOnStateChangedListener != null) {
                 mOnStateChangedListener.onChanged(false);
             }
-        } else if ((dyConsumed < 0 || dyUnconsumed < 0) && child.getVisibility() != View.VISIBLE) {
+        } else if ((dyConsumed < 0 && dyUnconsumed ==0) && child.getVisibility() != View.VISIBLE) {
             AnimatorUtil.scaleShow(child, null);
             if (mOnStateChangedListener != null) {
                 mOnStateChangedListener.onChanged(true);
@@ -95,7 +101,7 @@ public class ScaleDownShowBehavior extends FloatingActionButton.Behavior {
         @Override
         public void onAnimationEnd(View view) {
             isAnimatingOut = false;
-            view.setVisibility(View.GONE);
+            view.setVisibility(View.INVISIBLE);
         }
 
         @Override

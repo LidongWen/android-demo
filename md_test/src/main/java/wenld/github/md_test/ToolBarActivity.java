@@ -26,6 +26,10 @@ public class ToolBarActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         //设置NavigationIcon的点击事件监听，比如返回按钮。
         // app:navigationIcon="@drawable/abc_ic_ab_back_mtrl_am_alpha"
+        toolbar.setTitle("Title");
+        toolbar.setSubtitle("SubTitle");
+        toolbar.setLogo(R.mipmap.ic_launcher);
+        toolbar.setNavigationIcon(R.mipmap.ic_launcher);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -48,7 +52,7 @@ public class ToolBarActivity extends AppCompatActivity {
         //有时候我们需要实现自定义扩展效果
         //通过猜想，searchView用到了一个布局，去appcompat里面找到abc_search_view.xml,该里面的控件的属性
         ImageView icon = (ImageView) searchView.findViewById(R.id.search_go_btn);
-        icon.setImageResource(R.mipmap.ic_launcher);
+        icon.setImageResource(R.mipmap.ic_launcher_round);
         icon.setVisibility(View.VISIBLE);
 //		searchView.setMaxWidth(200);
 

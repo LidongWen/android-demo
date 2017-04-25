@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         app:errorEnabled="true"
         app:counterMaxLength="5"
-        app:hintAnimationEnabled="true">
+    >
 
         <EditText
             android:layout_width="fill_parent"

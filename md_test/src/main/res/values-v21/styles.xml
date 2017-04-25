@@ -3,9 +3,10 @@
 
     <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimary">#2e8abb</item> <!--浅蓝色-->
+        <item name="colorPrimaryDark">#3A5FCD</item> <!--深蓝色-->
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorSecondary">#ffffff</item> <!-- menu 颜色 -->
 
         <item name="android:colorControlHighlight">@color/colorAccent</item>
     </style>

@@ -22,5 +22,7 @@
         <activity android:name=".ToolBarActivity" />
         <activity android:name=".CoordinatorLayoutActivity" />
         <activity android:name=".BehaviorActivity_1" />
+        <activity android:name=".BottomSheetDialogActivity" />
+        <activity android:name=".AnimatorActivity" />
     </application>
 </manifest>

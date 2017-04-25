@@ -4,10 +4,12 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -59,7 +61,7 @@ public class BehaviorActivity_1 extends AppCompatActivity {
         FAB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Snackbar.make(FAB, "点宝宝干啥", Snackbar.LENGTH_SHORT).show();
+                Snackbar.make(FAB, "点宝宝干啥", Snackbar.LENGTH_SHORT).show();
             }
         });
 
@@ -71,6 +73,7 @@ public class BehaviorActivity_1 extends AppCompatActivity {
     private ScaleDownShowBehavior.OnStateChangedListener onStateChangedListener = new ScaleDownShowBehavior.OnStateChangedListener() {
         @Override
         public void onChanged(boolean isShow) {
+            Log.e("ssssssss","");
             mBottomSheetBehavior.setState(isShow ? BottomSheetBehavior.STATE_EXPANDED : BottomSheetBehavior.STATE_COLLAPSED);
         }
     };
@@ -80,10 +83,10 @@ public class BehaviorActivity_1 extends AppCompatActivity {
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
-        if (!initialize) {
-            initialize = true;
-            mBottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
-        }
+//        if (!initialize) {
+//            initialize = true;
+//            mBottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+//        }
     }
 
     @Override
