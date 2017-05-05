@@ -9,6 +9,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/largeimageview" />
             <option value="$PROJECT_DIR$/md_test" />
             <option value="$PROJECT_DIR$/recyclerViewDemo" />
           </set>

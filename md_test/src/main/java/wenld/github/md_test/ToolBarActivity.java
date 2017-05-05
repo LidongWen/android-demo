@@ -29,7 +29,8 @@ public class ToolBarActivity extends AppCompatActivity {
         toolbar.setTitle("Title");
         toolbar.setSubtitle("SubTitle");
         toolbar.setLogo(R.mipmap.ic_launcher);
-        toolbar.setNavigationIcon(R.mipmap.ic_launcher);
+//        toolbar.setNavigationIcon(R.mipmap.ic_launcher);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
 
             @Override

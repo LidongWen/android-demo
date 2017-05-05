@@ -1,1 +1,1 @@
-include ':recyclerViewDemo', ':md_test'
+include ':recyclerViewDemo', ':md_test', ':largeimageview'

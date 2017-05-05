@@ -11,7 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
-
+        app:titleTextColor="@color/cardview_light_background"
         app:title="网易新闻">
     </android.support.v7.widget.Toolbar>
+
 </android.support.design.widget.CoordinatorLayout>
