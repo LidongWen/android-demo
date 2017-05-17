@@ -1,6 +1,4 @@
-apply plugin: 'com.android.library'
-
-//apply plugin: 'com.antfortune.freeline'
+apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -9,7 +7,7 @@ android {
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-//        applicationId "com.wenld.md_demo"
+        applicationId "com.wenld.appcation_mdtest"
         versionCode 1
         versionName "1.0"
 
@@ -30,10 +28,10 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile deps.appcompatV7
+    compile deps.constraintLayout
     testCompile 'junit:junit:4.12'
-    compile 'com.zhy:base-rvadapter:3.0.2'
-    compile deps.supportV4
-    compile deps.supportDesign
-    compile deps.cardViewV7
-    compile 'com.github.LidongWen:AdapterValue:1.0.0'
+    compile "com.jakewharton:butterknife:${BUTTERKNIFE_VERSION}"
+    annotationProcessor "com.jakewharton:butterknife-compiler:${BUTTERKNIFE_VERSION}"
+    compile project(':library.base')
+    compile project(':md_test')
 }

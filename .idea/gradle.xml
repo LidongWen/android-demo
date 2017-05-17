@@ -9,9 +9,12 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/appcation_mdtest" />
             <option value="$PROJECT_DIR$/largeimageview" />
+            <option value="$PROJECT_DIR$/library.base" />
             <option value="$PROJECT_DIR$/md_test" />
             <option value="$PROJECT_DIR$/recyclerViewDemo" />
+            <option value="$PROJECT_DIR$/wenlddemo" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

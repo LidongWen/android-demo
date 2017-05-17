@@ -1,1 +1,1 @@
-include ':recyclerViewDemo', ':md_test', ':largeimageview'
+include ':recyclerViewDemo', ':md_test', ':largeimageview', ':wenlddemo', ':appcation_mdtest', ':library.base'
